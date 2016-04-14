@@ -1,0 +1,2 @@
+M:\CSC 370\CouseScheduleVerifier\CouseScheduleVerifier\bin\Debug\CouseScheduleVerifier.exe.config
+C:\Users\Nick\Desktop\CouseScheduleVerifier\CouseScheduleVerifier\bin\Debug\CouseScheduleVerifier.exe.config
