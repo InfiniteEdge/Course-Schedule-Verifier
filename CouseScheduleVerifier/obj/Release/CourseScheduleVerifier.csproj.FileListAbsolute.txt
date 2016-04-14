@@ -1,0 +1,10 @@
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\bin\Release\CouseScheduleVerifier.exe.config
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CourseScheduleVerifier.csproj.ResolveComReference.cache
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CouseScheduleVerifier.exe
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CouseScheduleVerifier.pdb
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\bin\Release\CouseScheduleVerifier.exe
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\bin\Release\CouseScheduleVerifier.pdb
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CourseScheduleVerifier.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CouseScheduleVerifier.Form1.resources
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CouseScheduleVerifier.Properties.Resources.resources
+C:\Users\Nick\Desktop\CourseScheduleVerifier\CouseScheduleVerifier\obj\Release\CourseScheduleVerifier.csproj.GenerateResource.Cache

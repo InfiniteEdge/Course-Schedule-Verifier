@@ -43,14 +43,17 @@ namespace CouseScheduleVerifier
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            remove.Enabled = false;
         }
 
         private void importButton_Click(object sender, EventArgs e)
         {
             //create instance of OpenFileDialog box
             OpenFileDialog ofd = new OpenFileDialog();
+            
+            //Filter to excel files only
             ofd.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";          
+            
             if(ofd.ShowDialog() == DialogResult.OK)
             {
               
@@ -187,7 +190,7 @@ namespace CouseScheduleVerifier
 
 
         private void remove_Click(object sender, EventArgs e)
-        {
+        {           
             int removeNumber = listBox1.SelectedIndex;
             listBox1.Items.Remove(listBox1.SelectedItem);
             classList.RemoveAt(removeNumber);
@@ -203,7 +206,9 @@ namespace CouseScheduleVerifier
             room.Text = "";
             day.Text = "";
             time.Text = "";
-            classCounter = classCounter + 1;          
+            classCounter = classCounter + 1;
+
+            remove.Enabled = true;
         }
 
                         
