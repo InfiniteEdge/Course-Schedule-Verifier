@@ -72,7 +72,7 @@ namespace CouseScheduleVerifier
                     this.room.Items.Add(GetCellValues(filePath, "Sheet1", cell));
                 }
                 //Loop for Day
-                for (int i = 2; i <= 4; i++)
+                for (int i = 2; i <= 3; i++)
                 {
                     string cell = "C" + i;
                     this.day.Items.Add(GetCellValues(filePath, "Sheet1", cell));
@@ -194,6 +194,9 @@ namespace CouseScheduleVerifier
             int removeNumber = listBox1.SelectedIndex;
             listBox1.Items.Remove(listBox1.SelectedItem);
             classList.RemoveAt(removeNumber);
+            
+            //Fixes error but re-displays same number of item removed twice
+            classCounter = classCounter - 1;
         }
 
         private void enter_Click(object sender, EventArgs e)
