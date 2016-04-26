@@ -15,6 +15,7 @@ using System.Data.OleDb;
 
 
 
+
 namespace CouseScheduleVerifier
 {
 
@@ -23,8 +24,19 @@ namespace CouseScheduleVerifier
     public partial class Form1 : Form
     {
 
+        public struct courseDetails
+        {
+            public string key;
+            public string title;
+            public string instructor;
+            public string room;
+            public string day;
+            public string time;
+        }
+        
+        //keeps track of how many classes were added 
         int classCounter = 0;
-        List<string> classList = new List<string>();                  
+        public List<courseDetails> courseList = new List<courseDetails>();                  
 
         public Form1()
         {
@@ -191,28 +203,61 @@ namespace CouseScheduleVerifier
 
         private void remove_Click(object sender, EventArgs e)
         {           
-            int removeNumber = listBox1.SelectedIndex;
-            listBox1.Items.Remove(listBox1.SelectedItem);
-            classList.RemoveAt(removeNumber);
-            
-            //Fixes error but re-displays same number of item removed twice
-            classCounter = classCounter - 1;
+           int removeNumber = listBox1.SelectedIndex;
+           listBox1.Items.Remove(listBox1.SelectedItem);
         }
 
         private void enter_Click(object sender, EventArgs e)
         {
-            int classNumber = classCounter + 1;
-            classList.Add(courseTitle.Text.ToString() + ", " + instructor.SelectedItem.ToString() + ", " + room.SelectedItem.ToString() + ", " + day.SelectedItem.ToString() + ", " + time.Text.ToString());
-            listBox1.Items.Add(classNumber.ToString() + ". " + classList[classCounter]);
+            courseDetails courseDetails1;
+            courseDetails1.key = (classCounter + 1).ToString();
+            courseDetails1.title = courseTitle.Text.ToString();
+            courseDetails1.instructor = instructor.SelectedItem.ToString();
+            courseDetails1.room = room.SelectedItem.ToString();
+            courseDetails1.day = day.SelectedItem.ToString();
+            courseDetails1.time = time.Text.ToString();
+
+            courseList.Add(courseDetails1);
+
+            if (classCounter > 0)
+            {
+                for (int j = 0; j < classCounter; j++)
+                {
+                    
+                    if ((courseList[classCounter].instructor == courseList[j].instructor) && (courseList[classCounter].day == courseList[j].day) && (courseList[classCounter].time == courseList[j].time))
+                    {
+                        DialogResult instructorConflict = MessageBox.Show("Are you sure you want  " + courseList[classCounter].instructor + " to teach both " + courseList[classCounter].title + " and " + courseList[j].title + " on " + courseList[j].day + " at " + courseList[j].time + "?", "WARNING", MessageBoxButtons.YesNo);
+                        if (instructorConflict == DialogResult.Yes)
+                        {
+                            listBox1.Items.Add(courseList[classCounter].key + ". " + courseList[classCounter].title + ", " + courseList[classCounter].instructor + ", " + courseList[classCounter].room + ", " + courseList[classCounter].day + ", " + courseList[classCounter].time);                       
+                            return;
+                        }
+                        if (instructorConflict == DialogResult.No)
+                        {                       
+                            return;
+                        }
+                    }
+                }
+            }
+            listBox1.Items.Add(courseList[classCounter].key + ". " + courseList[classCounter].title + ", " + courseList[classCounter].instructor + ", " + courseList[classCounter].room + ", " + courseList[classCounter].day + ", " + courseList[classCounter].time); //adds current list item to list box
+
+            //clear out data
             courseTitle.Text = "";
             instructor.SelectedItem = "";
             room.Text = "";
             day.Text = "";
             time.Text = "";
-            classCounter = classCounter + 1;
 
+            //increase class counter
+            classCounter = classCounter + 1;
+            
             remove.Enabled = true;
         }
+
+        
+        
+         
+        
 
                         
 
